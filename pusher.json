@@ -1,0 +1,8 @@
+{
+    "app_id": "794497",
+    "key": "91109b263ef88cb0ce07",
+    "secret": "51699e66242c6b1ec7bd",
+    "cluster": "ap1",
+    "encrypted":true,
+    "restServer":"http://192.168.0.15:4000"
+}
