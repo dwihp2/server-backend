@@ -1,11 +1,27 @@
-const http = require('http');
-const port=process.env.PORT || 3000
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.end('<h1>Hello World</h1>');
-});
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-server.listen(port,() => {
-    console.log(`Server running at port `+port);
-});
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/app', {useNewUrlParser:true})
+.then(()=>{
+    console.log('Connected to Mongo');
+})
+
+//RoutesFile
+const approutes = require('./routes_CRUD/app-routes');
+
+const app = express();
+
+//Bodyparser Middleware
+app.use(bodyParser.json());
+
+//Routes Middleware
+app.use('/app', approutes)
+
+//port
+const port = 5000 || process.env.PORT;
+
+app.listen(port, ()=>{
+    console.log(`Listen to the port of ${port}`);
+})
