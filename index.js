@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/app', {useNewUrlParser:true})
-.then(()=>{
-    console.log('Connected to Mongo');
-})
+// mongoose.connect('mongodb://localhost:27017/app', {useNewUrlParser:true})
+// .then(()=>{
+//     console.log('Connected to Mongo');
+// })
 
 //RoutesFile
 const approutes = require('./routes_CRUD/app-routes');
