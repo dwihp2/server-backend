@@ -13,6 +13,11 @@ const approutes = require('./routes_CRUD/app-routes');
 
 const app = express();
 
+app.get("/show_react",function(req,res){
+    console.log("show_react called");
+    res.send("hii react");
+    });
+
 //Bodyparser Middleware
 app.use(bodyParser.json());
 
