@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://localhost:27017/app', {useNewUrlParser:true})
 // .then(()=>{
 //     console.log('Connected to Mongo');
@@ -26,7 +26,8 @@ app.use('/app', approutes)
 
 //port
 const port = 5000 || process.env.PORT;
+const host = '0.0.0.0' || process.env.HOST;
+app.listen(port, host, ()=>{
 
-app.listen(port, ()=>{
     console.log(`Listen to the port of ${port}`);
 })
